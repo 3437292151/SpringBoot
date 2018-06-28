@@ -1,0 +1,13 @@
+##.project ignore
+.project
+
+##.classpath ignore
+.classpath
+
+##CVS ignore
+/CVS/
+CVS/*
+
+##.settings ignore
+/.settings
+.settings/*

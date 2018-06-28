@@ -1,0 +1,176 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.gdj</groupId>
+  <artifactId>SpringBoot</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <!-- spring boot parent节点，引入这个之后，在下面和spring boot相关的就不需要引入版本了; -->
+  <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.3.RELEASE</version>
+         <!-- lookup parent from repository -->
+   </parent>
+   
+   <dependencies>
+   
+   	<dependency>
+		<groupId>net.logstash.logback</groupId>
+		<artifactId>logstash-logback-encoder</artifactId>
+		<version>4.11</version>
+	</dependency>
+   
+   <!-- web支持: 1、web mvc; 2、restful; 3、jackjson支持; 4、aop ........ -->
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-web</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.alibaba</groupId>
+  		<artifactId>fastjson</artifactId>
+  		<version>1.2.15</version>
+  	</dependency>
+  	<!-- mysql驱动包 -->
+  	<dependency>
+	  <groupId>mysql</groupId>
+	  <artifactId>mysql-connector-java</artifactId>
+	</dependency>
+	<!-- 连接池 -->
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>druid</artifactId>
+		<version>1.0.18</version>
+	</dependency>
+	<!-- Spring data jpa 依赖包 -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-jpa</artifactId>
+	</dependency>
+	<!-- thymeleaf Spring Boot默认就是使用thymeleaf模板引擎  -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-thymeleaf</artifactId>
+	</dependency>
+	<!-- freemarker模板引擎 -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-freemarker</artifactId>
+	</dependency> 
+	<!-- servlet 依赖. -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	<!-- JSTL（JSP Standard Tag Library，JSP标准标签库)是一个不断完善的开放源代码的JSP标签库，
+	是由apache的jakarta小组来维护的。JSTL只能运行在支持JSP1.2和Servlet2.3规范的容器上，
+	如tomcat 4.x。在JSP 2.0中也是作为标准支持的。 -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+	</dependency>
+	<!-- tomcat 的支持.-->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-tomcat</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.tomcat.embed</groupId>
+		<artifactId>tomcat-embed-jasper</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!--spring Boot myBatis 依赖包 -->
+	<dependency>
+		<groupId>org.mybatis.spring.boot</groupId>
+		<artifactId>mybatis-spring-boot-starter</artifactId>
+		<version>1.1.1</version>
+	</dependency>
+	<!-- Mybatis提供了拦截器接口，我们可以实现自己的拦截器
+	将其作为一个plugin装入SqlSessionFactory 中
+	Github分页插件  Github项目：http://github.com/pagehelper/Mybatis-Pagehelper
+	-->
+	<dependency>
+		<groupId>com.github.pagehelper</groupId>
+		<artifactId>pagehelper</artifactId>
+		<version>4.1.0</version>
+	</dependency>
+	<!--spring-boot-configuration:spring boot 配置处理器; 用于-->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-configuration-processor</artifactId>
+		<optional>true</optional>
+	</dependency>
+	
+	<!-- 模块提供了一个监控和管理生产环境的模块，可以使用http、jmx、ssh、telnet等拉管理和监控应用。
+		审计（Auditing）、健康（health）、数据采集（metrics gathering）会自动加入到应用里面。 -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-actuator</artifactId>
+	</dependency>
+	<!-- spring boot springloaded 热部署-->
+	<!-- <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>springloaded</artifactId>
+		<version>1.2.4.RELEASE</version>
+	</dependency> -->
+	<!-- spring boot devtools 依赖包热部署-->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-devtools</artifactId>
+		<scope>true</scope>
+	</dependency>
+  </dependencies>
+  
+  <!-- 构建节点 -->
+  <build>
+  	<plugins>
+  		<!-- 在这里添加springloader plugin -->
+  		<!-- <plugin>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-maven-plugin</artifactId>
+  			<dependencies>
+  				<dependency>
+  					<groupId>org.springframework</groupId>
+  					<artifactId>springloaded</artifactId>
+  					<version>1.2.4.RELEASE</version>
+  				</dependency>
+  			</dependencies>
+  			<executions>
+  				<execution>
+  					<goals>
+  						<goal>repackage</goal>
+  					</goals>
+  					<configuration>
+  						<classifier>exec</classifier>
+  					</configuration>
+  				</execution>
+  			</executions>
+  		</plugin> -->
+  		<!-- 这是spring boot devtool plugin -->
+  		<plugin>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-maven-plugin</artifactId>
+  			<configuration>
+  				<fork>true</fork>
+  			</configuration>
+  		</plugin>
+  		<!-- mybatis插件 -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+				<source>1.7</source>
+				<target>1.7</target>
+				<encoding>UTF-8</encoding>
+				<compilerArguments>
+					<extdirs>D:/MyEclipseWork/SpringBoot/src/main/webapp/WEB-INF/lib/</extdirs>
+				</compilerArguments>
+			</configuration>
+		</plugin>
+  	</plugins>
+  </build>
+  
+  
+</project>

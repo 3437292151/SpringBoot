@@ -1,0 +1,39 @@
+Spring Boot
+一。 Spring Data JPA 总结
+1.需要添加依赖包
+	<dependency>
+		  <groupId>mysql</groupId>
+		  <artifactId>mysql-connector-java</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-jpa</artifactId>
+	</dependency>
+2.需要在application.properties添加相关信息
+	###################################################################
+	###datasource --指定mysql连接信息
+	###################################################################
+	spring.datasource.driverClassName = com.mysql.jdbc.Driver
+	spring.datasource.url = jdbc:mysql://127.0.0.1:3306/test
+	spring.datasource.username = root
+	spring.datasource.password = root
+	spring.datasource.max-active = 20
+	spring.datasource.max-idle = 8
+	spring.datasource.min-idle = 8
+	spring.datasource.initial-size = 10
+	###################################################################
+	####jpa hibernate Spring jpa的配置信息
+	###################################################################
+	spring.jpa.database = MYSQL
+	spring.jpa.show-sql = true
+	spring.jpa.format-sql = true
+	#hibernate ddl auto （creat ，  create-drop， update）
+	spring.jpa.hibernate.ddl-auto = update
+	spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy
+	spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.MySQLDialect
+3.创建实体类：
+	（1）持久化@Entity 
+	（2）指定主键，及主键生成策略：@Id ；@GeneratedValue(strategy = GenerationType.IDENTITY)
+4.创建一个dao接口继承Crudrepository
+5.创建一个service；
+6.创建一个Controller；
