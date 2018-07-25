@@ -69,10 +69,10 @@ public class App {
 	 * 这是springloaded的配置：-javaagent:.\lib\springloaded-1.2.4.RELEASE.jar -noverify
 	 */
 	public static void main(String[] args) {
-		//SpringApplication.run(App.class,args);
-		SpringApplication application = new SpringApplication(App.class);  
-		application.setShowBanner(false);  
-		application.run(args); 
+		SpringApplication.run(App.class,args);
+		/*SpringApplication application = new SpringApplication(App.class);
+		//application.setShowBanner(false);
+		application.run(args); */
 
 	}
 }

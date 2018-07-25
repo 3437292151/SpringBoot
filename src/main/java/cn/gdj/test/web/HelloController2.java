@@ -19,4 +19,5 @@ public class HelloController2 {
 	public String hello2(){
 		return "hello2 -2017-8-21";
 	}
+
 }

@@ -5,9 +5,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.ibatis.annotations.Delete;
+import org.springframework.web.bind.annotation.*;
 
 import cn.gdj.test.bean.Demo;
 import cn.gdj.test.service.DemoService;
@@ -27,7 +26,7 @@ public class DemoController {
 		Demo demo = new Demo();
 		demo.setId(1L);
 		demo.setName("Tom");
-		demo.setTime(new Date());
+		/*demo.setTime(new Date());*/
 		return  demo;
 	}
 	
@@ -48,7 +47,7 @@ public class DemoController {
 	public String save(){
 		Demo demo = new Demo();
 		demo.setName("Tom");
-		demo.setTime(new Date());
+		/*demo.setTime(new Date());*/
 		demoServier.sava(demo);
 		return "保存成功！";
 	}
@@ -91,12 +90,19 @@ public class DemoController {
 		return demoServier.findById(id);
 	}
 	
-	@RequestMapping("/saveDemo")
-	public Demo saveDemo(){
-		Demo demo = new Demo();
+	@PostMapping("/saveDemo")
+	public Demo saveDemo(@RequestBody Demo demo){
+		/*Demo demo = new Demo();
 		demo.setName("张三");
-		demo.setTime(new Date());
+		demo.setTime(new Date());*/
+		System.out.println(demo);
 		demoServier.saveDemo(demo);
 		return demo;
+	}
+
+	@DeleteMapping("/{id}")
+	public String delete(@PathVariable String id){
+		System.out.println(id);
+		return "删除成功！！！";
 	}
 }

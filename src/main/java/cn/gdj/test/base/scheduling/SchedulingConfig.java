@@ -21,13 +21,13 @@ public class SchedulingConfig {
 	
 	private final static Logger log = LoggerFactory.getLogger(SchedulingConfig.class);
 
-	@Scheduled(fixedRate = 10*1000)//每5秒执行一次
+	@Scheduled(fixedRate = 1000*1000)//每5秒执行一次
 	@Async
 	public void schedulder1(){
 		log.info(">>>>>>>>SchedulingConfig.schedulder1()");
 	}
 	
-	@Scheduled(fixedRate = 20*1000)//每5秒执行一次
+	@Scheduled(fixedRate = 2000*1000)//每5秒执行一次
 	@Async
 	public void schedulder2(){
 		log.info(">>>>>>>>SchedulingConfig.schedulder2()");
