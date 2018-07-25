@@ -1,7 +1,6 @@
 ######################
 # Project Specific
 ######################
-#/src/main/webapp/content/css/main.css
 /target/www/**
 /src/test/javascript/coverage/
 
@@ -116,7 +115,7 @@ Desktop.ini
 ######################
 # Logs
 ######################
-*.log
+*.log*
 
 ######################
 # Others
@@ -140,15 +139,3 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
-
-
-######################
-# adr-tools
-######################
-.adr-dir
-
-######################
-# ui
-######################
-yarn.lock
-package-lock.json

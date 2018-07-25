@@ -163,7 +163,20 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
-            <!-- mybatis插件 -->
+
+            <!-- mybatis generator 自动生成代码插件 -->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <configuration>
+                    <configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+            </plugin>
+
+            <!-- 编译设置 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -172,9 +185,6 @@
                     <source>1.8</source>
                     <target>1.8</target>
                     <encoding>UTF-8</encoding>
-                        <compilerArguments>
-                            <extdirs>D:/MyEclipseWork/SpringBoot/src/main/webapp/WEB-INF/lib/</extdirs>
-                        </compilerArguments>
                 </configuration>
             </plugin>
         </plugins>
