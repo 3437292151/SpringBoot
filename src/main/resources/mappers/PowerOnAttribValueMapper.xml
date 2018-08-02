@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gdj.test.dao.PowerOnAttribValueMapper" >
+  <resultMap id="BaseResultMap" type="cn.gdj.test.pojo.PowerOnAttribValue" >
+    <constructor >
+      <arg column="attrib_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="set_seq_no" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="represent_type_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="represent_category_no" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="value_text" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    attrib_id, set_seq_no, represent_type_id, represent_category_no, value_text
+  </sql>
+  <insert id="insert" parameterType="cn.gdj.test.pojo.PowerOnAttribValue" >
+    insert into power_on_attrib_value (attrib_id, set_seq_no, represent_type_id, 
+      represent_category_no, value_text)
+    values (#{attribId,jdbcType=VARCHAR}, #{setSeqNo,jdbcType=INTEGER}, #{representTypeId,jdbcType=VARCHAR}, 
+      #{representCategoryNo,jdbcType=INTEGER}, #{valueText,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gdj.test.pojo.PowerOnAttribValue" >
+    insert into power_on_attrib_value
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="attribId != null" >
+        attrib_id,
+      </if>
+      <if test="setSeqNo != null" >
+        set_seq_no,
+      </if>
+      <if test="representTypeId != null" >
+        represent_type_id,
+      </if>
+      <if test="representCategoryNo != null" >
+        represent_category_no,
+      </if>
+      <if test="valueText != null" >
+        value_text,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="attribId != null" >
+        #{attribId,jdbcType=VARCHAR},
+      </if>
+      <if test="setSeqNo != null" >
+        #{setSeqNo,jdbcType=INTEGER},
+      </if>
+      <if test="representTypeId != null" >
+        #{representTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="representCategoryNo != null" >
+        #{representCategoryNo,jdbcType=INTEGER},
+      </if>
+      <if test="valueText != null" >
+        #{valueText,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+      <include refid="Base_Column_List" />
+    from power_on_attrib_value
+  </select>
+    <select id="findPage" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from power_on_attrib_value
+    </select>
+</mapper>

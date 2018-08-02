@@ -17,7 +17,7 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 @RestController
 @SpringBootApplication
 @ServletComponentScan
-@MapperScan("cn.gdj.test.mapper")//扫描该包下的类
+@MapperScan({"cn.gdj.test.mapper","cn.gdj.test.dao"})//扫描该包下的类
 public class App {
 
 	@RequestMapping("/hello")
