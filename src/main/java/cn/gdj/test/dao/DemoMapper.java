@@ -1,13 +1,14 @@
-package cn.gdj.test.mapper;
+package cn.gdj.test.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import cn.gdj.test.bean.Demo;
-
+@Mapper
 public interface DemoMapper {
 
 	//#{name}占位符部会存在sql注入，$存在sql注入

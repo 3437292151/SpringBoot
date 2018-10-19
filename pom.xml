@@ -3,6 +3,7 @@
   <groupId>cn.gdj</groupId>
   <artifactId>SpringBoot</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
   <!--<packaging>war</packaging>-->
   <!-- spring boot parent节点，引入这个之后，在下面和spring boot相关的就不需要引入版本了; -->
     <parent>
@@ -80,6 +81,12 @@
             <artifactId>tomcat-embed-jasper</artifactId>
             <!--<scope>provided</scope>-->
         </dependency>
+
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
+            <version>2.0.0.M2</version>
+        </dependency>-->
 
         <!--spring Boot myBatis 依赖包 -->
         <dependency>
@@ -194,6 +201,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>SpringBoot</finalName>
     </build>
 
 

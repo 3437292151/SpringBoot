@@ -12,7 +12,7 @@ import cn.gdj.test.bean.Demo;
 import cn.gdj.test.dao.Demo2Repository;
 import cn.gdj.test.dao.DemoDao;
 import cn.gdj.test.dao.DemoRepository;
-import cn.gdj.test.mapper.DemoMapper;
+import cn.gdj.test.dao.DemoMapper;
 
 @Service
 public class DemoService {
