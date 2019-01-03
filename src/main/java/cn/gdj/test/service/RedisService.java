@@ -5,6 +5,7 @@ import cn.gdj.test.dao.UserMapper;
 import cn.gdj.test.pojo.PowerOnAttribValue;
 import cn.gdj.test.pojo.User;
 import cn.gdj.test.util.RedisUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by dell on 2018-7-30.
@@ -29,7 +31,7 @@ public class RedisService {
     @Autowired
     private PowerOnAttribValueMapper powerOnAttribValueMapper;
 
-    public void hello(String key, String value){
+    public void hello(String key, Object value){
 
         redisUtil.set(key,value);
     }
@@ -109,5 +111,12 @@ public class RedisService {
     public List<PowerOnAttribValue> getPowerOnAttribValueAll() {
         List<PowerOnAttribValue> powerOnAttribValueList = powerOnAttribValueMapper.findAll();
         return powerOnAttribValueList;
+    }
+
+    public String test(String key){
+        Object o = redisUtil.get(key);
+        String jsonString = JSONObject.toJSONString(o);
+        System.out.println(jsonString);
+        return jsonString;
     }
 }
