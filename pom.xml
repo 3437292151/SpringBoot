@@ -222,7 +222,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
                 <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <imageName>${docker.image.prefix}/${project.build.finalName}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
@@ -234,7 +234,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>SpringBoot</finalName>
+        <finalName>springboot</finalName>
     </build>
 
 
