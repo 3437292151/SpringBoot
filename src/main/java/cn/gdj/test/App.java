@@ -20,12 +20,12 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 @SpringBootApplication
 @ServletComponentScan
 @MapperScan({"cn.gdj.test.mapper","cn.gdj.test.dao"})//扫描该包下的类
-public class App extends SpringBootServletInitializer{
+public class App /*extends SpringBootServletInitializer*/{
 
-	@Override
+	/*@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(App.class);
-	}
+	}*/
 
 	@RequestMapping("/hello")
 	public String hello(){
