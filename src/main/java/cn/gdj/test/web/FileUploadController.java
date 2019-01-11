@@ -18,7 +18,7 @@ public class FileUploadController {
      */
     @RequestMapping("file")
     public String file(){
-        return "/file";
+        return "file";
     }
     
     /**
@@ -60,7 +60,7 @@ public class FileUploadController {
     /*@RequestMapping("/multifile")*/
     @GetMapping("/multifile")
     public String multifile(){
-        return "/multifile";
+        return "multifile";
     }
 
     /**
