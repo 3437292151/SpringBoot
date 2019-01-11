@@ -57,7 +57,7 @@ public class App /*extends SpringBootServletInitializer*/{
 		//4.将convert添加到converts
 		converters.add(fastConverter);
 	}*/
-	@Bean
+	/*@Bean
 	public HttpMessageConverters fastHttpMessageConverters(){
 		//1.需要先定义一个convert转换消息对象
 		FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
@@ -69,7 +69,7 @@ public class App /*extends SpringBootServletInitializer*/{
 		//4.将convert转换为HttpMessageConverter
 		HttpMessageConverter<?> converter = fastConverter;
 		return new HttpMessageConverters(converter);
-	}
+	}*/
 	
 	/**
 	 * 
